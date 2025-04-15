@@ -5,16 +5,16 @@ const chats = require('./data/data')
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2000;
 
 app.get('/', (req, res) => {
   res.send('Server is running 🚀');
 });
-app.get('/chats', (req, res) => {
-    console.log("sended");
+app.get('/api/chats', (req, res) => {
+
     res.send(chats);
   });
-  app.get('/:id', (req, res) => {
+  app.get('/api/:id', (req, res) => {
     res.send(chats.find(ele => ele._id === req.params.id));
   });  
 
